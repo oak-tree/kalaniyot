@@ -52,6 +52,10 @@ body {
 	
 }
 
+.app-nav a {
+text-decoration: none;
+}
+
 .app-content {
 	position:relative;
 	 margin: auto;

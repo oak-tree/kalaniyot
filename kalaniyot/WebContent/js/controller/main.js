@@ -19,7 +19,7 @@ window.Router = Backbone.Router.extend({
 		
 		$('#header').html(this.headerView.render().el);
 		$('#app-nav').html(this.appNavView.render().el);
-		$('#app-contant').html(this.appContantView.render().el);
+		$('#app-content').html(this.appContantView.render().el);
 		
 		
 

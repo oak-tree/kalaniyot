@@ -87,9 +87,10 @@ later on </description>
 
 			<!-- Maven Tomcat Plugin -->
 			<plugin>
+
 				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat-maven-plugin</artifactId>
-				<version>1.1</version>
+				<artifactId>tomcat6-maven-plugin</artifactId>
+				<version>2.0</version>
 
 
 				<configuration>
@@ -98,6 +99,15 @@ later on </description>
 					<path>${deploy.path}</path>
 
 					<!-- <serverXml>src/main/tomcatconf/settings.xml</serverXml> -->
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<!-- <webXml>src\main\webapp\WEB-INF\web.xml</webXml> -->
+					<webXml>WebContent\WEB-INF\web.xml</webXml>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -111,3 +121,4 @@ later on </description>
 		</plugins>
 	</build>
 </project>
+a

@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>kalaniyot</groupId>
+	<artifactId>kalaniyot</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>kalaniyot</name>
+	<description>will come 
+later on </description>
+	<packaging>war</packaging>
+
+	<profiles>
+		<profile>
+			<id>local-dev</id>
+			<activation>
+
+
+			</activation>
+
+			<!-- <activation> <activeByDefault>true</activeByDefault> </activation> 
+				http://java.dzone.com/articles/maven-profile-best-practices sugguest dont 
+				not use it -->
+
+			<!-- <properties> <env>dev-local</env> <jdk>${env.JAVA_HOME}</jdk> </properties> -->
+
+			<build>
+				<resources>
+					<resource>
+
+						<directory>src/main/resources/local-dev</directory>
+						<targetPath>WEB-INF</targetPath>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+
+		<profile>
+			<id>remote-dev</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<deploy.url>http://kalaniyot-dev.bitnamiapp.com:8080/manager/text</deploy.url>
+				<deploy.server.name>kalaniyot-develop-server</deploy.server.name>
+				<deploy.path>/kalaniyot-dev</deploy.path>
+			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources/remote-dev</directory>
+						<targetPath>WEB-INF</targetPath>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+
+		<profile>
+			<id>remote-prod</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<deploy.url>http://research.mscc.huji.ac.il/manager/text</deploy.url>
+				<deploy.server.name>kalaniyot-production-server</deploy.server.name>
+				<deploy.path>/jpp-spring</deploy.path>
+			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources/remote-prod</directory>
+						<targetPath>WEB-INF</targetPath>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+
+	</profiles>
+
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+
+
+
+
+		<plugins>
+
+			<!-- Maven Tomcat Plugin -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<version>1.1</version>
+
+
+				<configuration>
+					<url>${deploy.url}</url>
+					<server>${deploy.server.name}</server>
+					<path>${deploy.path}</path>
+
+					<!-- <serverXml>src/main/tomcatconf/settings.xml</serverXml> -->
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

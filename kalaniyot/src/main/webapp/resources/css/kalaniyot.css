@@ -37,8 +37,10 @@ body { /* 	font-family:Georgia, Times, serifs; */
 }
 
 .nav-bar {
-	
+	padding-left:100px;
+	padding-bottom:10px;
 }
+
 .nav-bar ul li {
 
 	width: 100%;
@@ -47,9 +49,10 @@ body { /* 	font-family:Georgia, Times, serifs; */
 }
 .nav-bar ul li  a {
 	text-decoration: none;
-	padding-right: 3px;
+	padding-right: 10px;
+	padding-left: 10px;
 	width: 100%;
-	font-size: 5px;
+	font-size: 15px;
 }
 
 .nav-bar-bottom {
@@ -98,19 +101,27 @@ body { /* 	font-family:Georgia, Times, serifs; */
 .app-nav {
 	text-align: center;
 /* 	position: relative; */
-	padding-bottom: 5px;
-	padding-top: 5px;
-	font-size: 9px;
+	;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-size: 30px;
 	color: #ecefe9;
+	padding-top:10px;
+	padding-bottom:10px;
+	
 }
 
 .app-nav  a {
 	color: #ecefe9;
+	
 }
 
 .app-nav a {
 	text-decoration: none;
+	padding-left:10px;
+	padding-right:50px;
 }
+
 
 /* .centered { */
 /* 	position:relative; */

@@ -52,7 +52,7 @@ TemplateManager = {
 		} else {
 
 			var that = this;
-			$.get("tpl/" + id + ".html", function(template) {
+			$.get("resources/tpl/" + id + ".html", function(template) {
 				var $tmpl = _.template(template);
 				that.templates[id] = $tmpl
 				callback($tmpl);

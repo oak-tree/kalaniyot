@@ -12,7 +12,9 @@ window.AppNavView = BaseNavView.extend({
 });
 
 window.AppContactView = BaseView.extend({
-
+ tagName:"div",
+ className:"masonry",
+	 
 
 	
 	

@@ -1,3 +1,16 @@
+
+/*
+ *   $(function(){
+    
+    $('#container').masonry({
+      itemSelector: '.box',
+      columnWidth: 200,
+     // isAnimated: !Modernizr.csstransitions,
+      isFitWidth: true
+    });
+    
+  });
+ */
 window.BaseView = Backbone.View.extend({
 
     

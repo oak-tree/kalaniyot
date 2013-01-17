@@ -20,7 +20,21 @@ window.Router = Backbone.Router.extend({
 		$('#header').html(this.headerView.render().el);
 		$('#app-nav').html(this.appNavView.render().el);
 		$('#app-content').html(this.appContantView.render().el);
-		
+		$('#app-content').append(this.appContantView.render().el);
+		$('#app-content').append(this.appContantView.render().el);
+		$('#app-content').append(this.appContantView.render().el);
+		$('#app-content').append(this.appContantView.render().el);
+		  
+		    $('#app-content .masonry').masonry({
+		      itemSelector: '.bool',
+		      columnWidth: 200,
+		      containerMinHeight:$('#app-content').height,
+		     // isAnimated: !Modernizr.csstransitions,
+		      isFitWidth: false
+		    });
+		    
+	
+	
 		
 
 	},

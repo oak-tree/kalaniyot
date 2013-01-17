@@ -86,12 +86,17 @@ body { /* 	font-family:Georgia, Times, serifs; */
 	z-index: -1;
 	height: 100%;
 	background: red;
-	background: url(../img/testbackground.jpg);
+	background: url(../img/background.png);
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 
 	
 }
+
+.bool {
+	width:10%;
+}
+
 
 /* #app-nav { */
 
@@ -104,15 +109,15 @@ body { /* 	font-family:Georgia, Times, serifs; */
 	;
 	padding-bottom: 10px;
 	padding-top: 10px;
-	font-size: 30px;
-	color: #ecefe9;
+	font-size: 25px;
+	color: #4a2d15;
 	padding-top:10px;
 	padding-bottom:10px;
 	
 }
 
 .app-nav  a {
-	color: #ecefe9;
+	color: #4a2d15;
 	
 }
 
@@ -127,6 +132,10 @@ body { /* 	font-family:Georgia, Times, serifs; */
 /* 	position:relative; */
 /* 	margin:0 auto; */
 /* } */
+.app-content-background {
+	z-index:-1;
+	
+}
 .app-content { 
 	clear: left;
 	
@@ -134,10 +143,13 @@ body { /* 	font-family:Georgia, Times, serifs; */
 	width: 60%;
 	
 	margin: 0 auto;
-	
+/* 	background:url('../img/app-content-1-pixel.png'); */
+/* 	//background-repeat:repeat; */
+	 background-color: rgba(128,64,0,0.75);
+
 	padding-top: 7px;
-	background-color: #ffffff;
-	z-index: -1;
+	
+	z-index: 1;
 }
 
 .is-shade-top {

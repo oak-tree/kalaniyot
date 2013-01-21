@@ -4,7 +4,7 @@ window.Router = Backbone.Router.extend({
 		"" : "home",
 		"contact" : "contact",
 		"about" : "about",
-		"mygarden" : "myGarden",
+		"garden/:user_id" : "myGarden",
 				
 	//"search/full/:key":	"fullSearch"
 
@@ -38,6 +38,33 @@ window.Router = Backbone.Router.extend({
 		
 
 	},
+	
+	garden:function(userId){
+		
+		var garden = New garden({id:userId});
+		
+		
+		if (!this.gardenView) {
+			this.gradenView = new GardenView();
+			this.gardenView.render();
+			
+		
+		}
+		
+		garden.fetch({
+			success : function(data) {
+				// Note that we could also 'recycle' the same instance of
+				// EmployeeFullView
+				// instead of creating new instances
+				$('#app-contant').html(gardenView({
+					model : data
+				}).render().el);
+			}
+		});
+		
+		
+		
+	},
 
 	home : function() {
 		// Since the home view never changes, we instantiate it and render it
@@ -49,7 +76,7 @@ window.Router = Backbone.Router.extend({
 			this.homeView.delegateEvents(); // delegate events when the view is
 			// recycled
 		}
-		$(".app-contant").html(this.homeView.el);
+		$(".app-content").html(this.homeView.el);
 		this.headerView.select('home-menu');
 	},
 
@@ -58,7 +85,7 @@ window.Router = Backbone.Router.extend({
 			this.contactView = new ContactView();
 			this.contactView.render();
 		}
-		$('.app-contant').html(this.contactView.el);
+		$('.app-content').html(this.contactView.el);
 		this.headerView.select('contact-menu');
 	},
 
@@ -67,7 +94,7 @@ window.Router = Backbone.Router.extend({
 			this.aboutView = new AboutView();
 			this.aboutView.render();
 		}
-		$('.app-contant').html(this.aboutView.el);
+		$('.app-content').html(this.aboutView.el);
 		this.headerView.select('about-menu');
 	},
 

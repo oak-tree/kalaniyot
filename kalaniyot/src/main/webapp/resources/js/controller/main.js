@@ -1,7 +1,11 @@
 window.Router = Backbone.Router.extend({
 
+	
+	elColumnsObjects:null, //holds the object that needs to be order in columns
+	
+	
 	routes : {
-		"" : "home",
+		//"" : "home",
 		"contact" : "contact",
 		"about" : "about",
 		"garden/:user_id" : "myGarden",
@@ -19,21 +23,24 @@ window.Router = Backbone.Router.extend({
 		
 		$('#header').html(this.headerView.render().el);
 		$('#app-nav').html(this.appNavView.render().el);
-		$('#app-content').html(this.appContantView.render().el);
-		$('#app-content').append(this.appContantView.render().el);
-		$('#app-content').append(this.appContantView.render().el);
-		$('#app-content').append(this.appContantView.render().el);
-		$('#app-content').append(this.appContantView.render().el);
+//		$('#app-content').html(this.appContantView.render().el);
+//		$('#app-content').append(this.appContantView.render().el);
+//		$('#app-content').append(this.appContantView.render().el);
+//		$('#app-content').append(this.appContantView.render().el);
+//		$('#app-content').append(this.appContantView.render().el);
 		  
-		    $('#app-content .masonry').masonry({
-		      itemSelector: '.bool',
-		      columnWidth: 200,
-		      containerMinHeight:$('#app-content').height,
-		     // isAnimated: !Modernizr.csstransitions,
-		      isFitWidth: false
-		    });
+//		    $('#app-content .masonry').masonry({
+//		      itemSelector: '.bool',
+//		      columnWidth: 200,
+//		      containerMinHeight:$('#app-content').height,
+//		     // isAnimated: !Modernizr.csstransitions,
+//		      isFitWidth: false
+//		    });
+//		    
 		    
-	
+		    this.bullPlant = new BullPlant(); 
+		    this.bullPlantView = new BaseBullView({model:this.bullPlant,template:"BullItemPlantView"});
+		    $('#app-content').html(this.bullPlantView.render().el);
 	
 		
 
@@ -41,7 +48,7 @@ window.Router = Backbone.Router.extend({
 	
 	garden:function(userId){
 		
-		var garden = New garden({id:userId});
+//		var garden = New Garden({id:userId});
 		
 		
 		if (!this.gardenView) {

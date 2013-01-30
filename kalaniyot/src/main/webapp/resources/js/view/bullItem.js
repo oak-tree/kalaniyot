@@ -6,7 +6,7 @@
  */
 window.BaseBullView = Backbone.View.extend({
 
-	tagName : "li",
+	tagName : "div",
 	//className:	"col",
 	template:"BullItemBasicView",
     
@@ -47,7 +47,7 @@ window.BaseBullView = Backbone.View.extend({
 
 
 		var that = this;
-		TemplateManager.get(this.options.template, function(template) {
+		TemplateManager.get(this.template, function(template) {
 
 			$(that.el).html(template(that.model.toJSON()));
 

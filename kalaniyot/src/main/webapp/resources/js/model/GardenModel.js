@@ -1,47 +1,42 @@
 /**
- * a model for definator part. note that game model should extends this model 
+ * a model for Garden 
  * 
  * @Author oak
  */  
-window.MyGarden =  Backbone.Model.extend({
+window.BullPlant =  Backbone.Model.extend({
 
 	status:0, // for future use
 	
-	defaults : {
-		"userId": 1342342245000,
-		"
-		"user": "userinput",
-		"status": 0,
-		"txt": "soe text",
+	
+	/*
+	 * default for My garden 
+	 */
+	
+	defaults: { 
+		"title":null,
+		"plantImage":"rakafot.png",
+		"plantName":"רקפות",
+		"plantLocation":"בגלבוע",
+		"plantDate":"12.12.12", // should be date serial number
+		"plantPhotographer":"ישראלי מרמת השרון",
+			
+		
 	},
+	
 	urlRoot : "keyword",
 
+});
 	
-	
-	
-	/**
-	 * 
-	 * @param innerObjectId
-	 * @param settings
-	 * @returns {String}
-	 */
-	getPreview: function (innerObjectId, settings) {
-		
-		var url = this.innerObjectType +'/' + innerObjectId
-		//var url = "keyword/" + this.id + "/superKeywords/remove/" + superId
-		console.log('get info about this inner object ' + url);
-		var self = this;
-		var mustSettings = {
-			url : url,
-			dataType : "json",
-			type : "GET"
-		}
-		$.extend(settings, mustSettings)
 
-		$.ajax(settings);
-		return url;
-	}
+window.PlantCollection =  Backbone.Collection.extend({
 
+	model : BullPlant,
+	urlRoot : "keyword",
+	page:0,
+	
+	url: function () {
+		return '/plantes/page' + this.page;
+	},
 	
 
 }); 

@@ -79,28 +79,9 @@
 
 <!-- <script src="resources/web/js/models/employeemodel.js"></script> -->
 <script src="resources/web/js/models/BasicModel.js"></script>
-<script src="resources/web/js/models/InnerModel.js"></script>
-<script src="resources/web/js/models/BasicReportModel.js"></script>
+
+<script src="resources/web/js/models/GardenModel.js"></script>
 <!-- <script src="resources/web/js/models/personModel.js"></script> -->
-
-<script src="resources/web/js/models/keywordModel.js"></script>
-<script src="resources/web/js/models/AuthorModel.js"></script>
-<script src="resources/web/js/models/PersonModel.js"></script>
-<script src="resources/web/js/models/PlaceModel.js"></script>
-<script src="resources/web/js/models/ReportModel.js"></script>
-<script src="resources/web/js/models/SourceModel.js"></script>
-<script src="resources/web/js/models/TribeModel.js"></script>
-
-
-
-
-
-
-
-<script src="resources/web/js/models/searchModel.js"></script>
-<script src="resources/web/js/models/innerObjectModel.js"></script>
-<script src="resources/web/js/models/innerObjectFactory.js"></script>
-<script src="resources/web/js/models/timerObject.js"></script>
 
 
 
@@ -114,8 +95,7 @@
 <!-- <script src="resources/web/js/views/persondetails.js"></script> -->
 
 
-<script src="resources/web/js/views/search/searchList.js"></script>
-<script src="resources/web/js/views/search/searchDetails.js"></script>
+<script src="resources/web/js/views/bullItem.js"></script>
 
 <script src="resources/web/js/views/general/innerObjectList.js"></script>
 

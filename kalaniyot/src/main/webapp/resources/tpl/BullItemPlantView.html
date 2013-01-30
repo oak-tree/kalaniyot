@@ -1,0 +1,25 @@
+<!-- basic template for the app center object. -->
+<div class="bull">
+
+<% if ( title )  { %>
+<div class="bull-title"><%= title %></div>
+<% } %> 
+
+
+
+<img src="resources/img/<%= plantImage %>" class="bull-image" alt="Smiley face" height="100" width="80">
+
+	<div class="bull-text ">
+
+	<ul class="is-no-bullet">
+	<li>שם הפרח: <%= plantName %> </li>
+	<li>צולם : <%= plantLocation%> </li>
+	<li>תאריך : <%= plantDate %> </li>
+	<li>נאסף על ידי משפחת : <%= plantPhotographer %> </li>
+	
+	</ul>
+	</div>
+	
+	
+</div>
+

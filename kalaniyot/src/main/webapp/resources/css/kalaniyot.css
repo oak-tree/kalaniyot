@@ -1,3 +1,7 @@
+* {
+direction:rtl;
+
+}
 html,body {
 	margin: 0;
 	padding: 0;
@@ -94,12 +98,68 @@ body { /* 	font-family:Georgia, Times, serifs; */
 }
 
 .bull { /*instead of bool */
-	width:10%;
-	-webkit-transition: all 1s ease-in-out;
-    -moz-transition: all 1s ease-in-out;
-    -o-transition: all 1s ease-in-out;
-    -ms-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
+width: 150px;
+display: inline-block;
+background: #FEFEFE;
+border: 2px solid #FAFAFA;
+box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+margin: 0 2px 15px;
+-webkit-column-break-inside: avoid;
+-moz-column-break-inside: avoid;
+column-break-inside: avoid;
+padding: 15px;
+padding-bottom: 5px;
+background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+opacity: 1;
+-webkit-transition: all .2s ease;
+-moz-transition: all .2s ease;
+-o-transition: all .2s ease;
+transition: all .2s ease;
+}
+
+.bull-title {
+	
+	
+}
+
+.bull-image {
+	
+    padding: 50%, 0;
+	width: 100px;
+	max-height:200px;
+border-bottom: 1px solid #ccc;
+padding-bottom: 15px;
+margin-bottom: 5px;
+
+}
+.bull-text > ul {
+	display: inline-block;
+	font-size: 10px;
+	padding-right:15px;
+	
+}
+.pin {
+
+
+}
+.pin img {
+
+}
+img {
+
+}
+
+.pin p {
+/* font: 12px/18px Arial, sans-serif; */
+color: #333;
+margin: 0;
+}
+p {
+display: block;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
 }
 
 
@@ -185,6 +245,9 @@ body { /* 	font-family:Georgia, Times, serifs; */
 	filter: alpha(opacity = 0); /* For IE8 and earlier */
 }
 
+.is-no-bullet {
+	list-style: none;
+}
 .is-one-line {
 	margin: 0;
 	list-style: none;

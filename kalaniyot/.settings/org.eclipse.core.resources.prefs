@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/resources/js/model/GardenModel.js=UTF-8
 encoding//src/main/webapp/resources/tpl/AppContantView.html=UTF-8
 encoding//src/main/webapp/resources/tpl/AppNavView.html=UTF-8
+encoding//src/main/webapp/resources/tpl/BullItemPlantView.html=UTF-8
 encoding//src/main/webapp/resources/tpl/HeaderView.html=UTF-8
 encoding/<project>=UTF-8

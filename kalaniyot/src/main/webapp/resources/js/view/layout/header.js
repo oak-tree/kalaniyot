@@ -6,7 +6,20 @@ window.HeaderView = BaseNavView.extend({
     
     this.template = "HeaderView";
     },
+	render : function() {
 
-            
+		var that = this;
+		TemplateManager.get(this.template, function(template) {
+
+			// $(that.el).html(template(that.model.toJSON()));
+			$(that.el).html(template());
+		
+			
+		});
+		
+		return this;
+	},
+          
+  
 
 });

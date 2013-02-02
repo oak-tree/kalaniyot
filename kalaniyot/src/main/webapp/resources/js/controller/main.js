@@ -23,7 +23,7 @@ window.Router = Backbone.Router.extend({
 		
 		$('#header').html(this.headerView.render().el);
 		$('#app-nav').html(this.appNavView.render().el);
-//		$('#app-content').html(this.appContantView.render().el);
+		$('#app-content').html(this.appContantView.render().el);
 //		$('#app-content').append(this.appContantView.render().el);
 //		$('#app-content').append(this.appContantView.render().el);
 //		$('#app-content').append(this.appContantView.render().el);
@@ -41,6 +41,20 @@ window.Router = Backbone.Router.extend({
 		    this.bullPlant = new BullPlant(); 
 		    this.bullPlantView = new BaseBullView({model:this.bullPlant,template:"BullItemPlantView"});
 		    $('#app-content').html(this.bullPlantView.render().el);
+
+		    
+		    
+		    this.bullPlants = new PlantCollection();
+		    
+		    for (var i = 1; i < 20; i ++){
+		    	
+		    	this.bullPlants.add( new BullPlant());	
+		    }
+
+		    
+		    
+		    $('#app-content').html( new ColumnView({model:this.bullPlants,template:"BullItemPlantView"}).render().el);
+		    
 	
 		
 

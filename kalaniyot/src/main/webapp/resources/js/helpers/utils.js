@@ -45,17 +45,17 @@ TemplateManager = {
 
 	get : function(id, callback) {
 		var template = this.templates[id];
-
+		
 		if (template) {
-			callback(template);
+			return callback(template);
 
 		} else {
 
 			var that = this;
 			$.get("resources/tpl/" + id + ".html", function(template) {
 				var $tmpl = _.template(template);
-				that.templates[id] = $tmpl
-				callback($tmpl);
+				that.templates[id] = $tmpl;
+				return callback($tmpl);
 			});
 
 		}

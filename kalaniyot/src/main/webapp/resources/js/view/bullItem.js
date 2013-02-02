@@ -6,8 +6,8 @@
  */
 window.BaseBullView = Backbone.View.extend({
 
-	tagName : "div",
-	//className:	"col",
+	tagName : "div",	
+	className:	"bull",
 	template:"BullItemBasicView",
     
 	

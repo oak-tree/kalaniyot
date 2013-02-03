@@ -25,22 +25,42 @@ window.ColumnView = Backbone.View.extend({
 
 	
 	colCount: 0,
-	colWidth:50,
-	margin:20,
+	colWidth:150,
+	margin:50,
 	
 	event: {
 		"scroll":"onScroll", 
 		"resize":"applyLayout",
+		"cannge":"applyLayout"
 		
 	},
 	
 	initialize:function(options){
-		this.model.bind("change", this.render, this);
+		this.model.bind("change", this.change, this);
 		//this.model.bind("change", this.applyLayout, this);
-
+		$(window).bind("resize.app", _.bind(this.resize, this))
 		
 	},
 	
+	remove: function() {
+        // unbind the namespaced event (to prevent accidentally unbinding some
+        // other resize events from other code in your app
+        // in jQuery 1.7+ use .off(...)
+        $(window).unbind("resize.app");
+
+        // don't forget to call the original remove() function
+        Backbone.View.prototype.remove.call(this);
+        // could also be written as:
+        // this.constructor.__super__.remove.call(this);
+    }, 
+    
+    change:function(event){
+    	
+    	alert('bah');
+    },
+    resize:function(event){
+    	this.applyLayout();
+    },
 	
 	getNumberOfPage:function(){
 		//TODO check if this correct - should be like window.document.height / window.screen.height
@@ -92,6 +112,7 @@ window.ColumnView = Backbone.View.extend({
 		
 		//create elList object
 		$(this.elList).empty();
+		$(this.el).empty();
 		
 		this.settings ={};
 		_.each(this.model.models, function(data) {
@@ -109,13 +130,13 @@ window.ColumnView = Backbone.View.extend({
 			 */
 			this.settings.template  = "BullItemPlantView";
 			
-			$(this.elList).append(new BaseBullView(this.settings).render().el);
+		//	$(this.elList).append(new BaseBullView(this.settings).render().el);
 			$(this.el).append(new BaseBullView(this.settings).render().el);
 					
 					
 		}, this);
 		
-
+		this.applyLayout();
 
 		return this;
 	},
@@ -142,7 +163,7 @@ window.ColumnView = Backbone.View.extend({
 	render : function() {
 			
 			this.processData();
-			this.applyLayout();
+			
 			/*
 			 * use templateManager instead of loading whole templates on runtime
 			 * $(this.el).html(this.template(this.model.toJSON())); 
@@ -175,7 +196,7 @@ window.ColumnView = Backbone.View.extend({
 		
 		   var  windowWidth = $('#app-content').width();
 		    
-		    var colCount = Math.floor(windowWidth/(this.colWidth+this.margin));
+		    var colCount = Math.floor(windowWidth/(this.colWidth+this.margin*2));
 		    for(var i=0;i<colCount;i++) {
 		        blocks.push(this.margin);
 		    }
@@ -195,15 +216,14 @@ window.ColumnView = Backbone.View.extend({
 		$('.bull',this.el).each(function(index,value){
 			//alert (index);
 	        var min = Array.min(blocks);
-	        var index = $.inArray(min, blocks);
-	        var leftPos = this.margin+(index*(that.colWidth+that.margin));
+	        var blockIndex = $.inArray(min, blocks);
+	        var leftPos = that.margin+(blockIndex*(that.colWidth+that.margin));
 	        $(this).css({
 	            'left':leftPos+'px',
 	            'top':min+'px'
 	        });
-	        blocks[index] = min+$(that).outerHeight()+that.margin;
+	        blocks[blockIndex] = min+$(this).outerHeight()+that.margin; //this index wont be min any more...	
 	    });
-		
 		
 		
 		/* for each block 
